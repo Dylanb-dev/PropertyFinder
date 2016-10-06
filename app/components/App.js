@@ -18,28 +18,19 @@ export class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image
-          style={styles.logo}
-          source={require('../assets/react-native-web.png')}
-        />
-        <Touchable style={styles.touchable} onPress={()=> console.log("Can't touched this?")}>
-          <Text style={styles.welcome}>
-            Welcome to React Native for Web Starter!
-          </Text>
-          <Text style={styles.instructions}>
-            To get started, edit index.web.js
-          </Text>
-          <Text style={styles.instructions}>
-            Press Cmd+R to reload,{'\n'}
-            Alt+Cmd+I for dev menu
-          </Text>
-        </Touchable>
+        <Text style={styles.text}>Hello World (Again)</Text>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  text: {
+    color: 'black',
+    backgroundColor: 'white',
+    fontSize: 30,
+    margin: 80
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
