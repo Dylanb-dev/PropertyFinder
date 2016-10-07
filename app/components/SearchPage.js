@@ -103,8 +103,8 @@ export class SearchPage extends Component {
           <Text style={styles.buttonText}>Location</Text>
         </TouchableHighlight>
         <Image source={require('../assets/house.png')} style={styles.image}/>
-        {spinner}
         <Text style={styles.description}>{this.state.message}</Text>
+        {spinner}
       </View>
     );
   }
@@ -113,8 +113,9 @@ export class SearchPage extends Component {
 
 const styles = StyleSheet.create({
   description: {
+    marginBottom: 20,
     fontSize: 18,
-    margin: 5,
+    textAlign: 'center',
     color: '#656565'
   },
   container: {
@@ -149,6 +150,7 @@ const styles = StyleSheet.create({
     marginRight: 5,
     marginBottom: 10,
     flex: 4,
+    padding: 4,
     fontSize: 18,
     borderWidth: 1,
     borderColor: '#48BBEC',
