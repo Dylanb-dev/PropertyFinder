@@ -45,7 +45,7 @@ export class SearchPage extends Component {
   _executeQuery(query) {
     console.log(query);
     this.setState({ isLoading: true });
-    fetch(query)
+    fetch(query, {body: null})
     .then(response => response.json())
     .then(json => this._handleResponse(json.response))
     .catch(error =>
@@ -113,9 +113,8 @@ export class SearchPage extends Component {
 
 const styles = StyleSheet.create({
   description: {
-    marginBottom: 20,
     fontSize: 18,
-    textAlign: 'center',
+    margin: 5,
     color: '#656565'
   },
   container: {

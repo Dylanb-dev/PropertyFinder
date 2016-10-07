@@ -5,7 +5,7 @@ const DIRECTORY = path.join(__dirname)
 
 module.exports = {
   devServer: {
-    contentBase: path.join(__dirname, 'src')
+    contentBase: path.join(__dirname, 'src'),
   },
   entry: [
     path.join(__dirname, '../index.web.js')
