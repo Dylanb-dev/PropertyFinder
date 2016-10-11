@@ -13,9 +13,11 @@ import {
 
 export class SearchResults extends Component {
 
+  componentDidMount() {
+    console.log(this.props.location.query.cat);
+  }
   constructor(props) {
     super(props);
-    console.log(this.props.query)
     var listings = [{
         "bathroom_number": 1,
         "bedroom_number": 1,
@@ -705,6 +707,7 @@ export class SearchResults extends Component {
     this.state = {
       dataSource: dataSource.cloneWithRows(listings)
     };
+    console.log(this.props.params.query);
   }
 
   renderRow(rowData, sectionID, rowID) {
@@ -726,7 +729,6 @@ export class SearchResults extends Component {
     );
   }
 }
-
 
 SearchResults.contextTypes = {
   router: React.PropTypes.object

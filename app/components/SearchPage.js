@@ -61,9 +61,8 @@ export class SearchPage extends Component {
     if (response.application_response_code.substr(0, 1) === '1') {
       this.context.router.transitionTo({
        pathname: '/results',
-       query: {test: 'nerd'},
-       params: {listings: response.listings}
-        })
+       query: { cat: 'neko' }
+      })
       } else {
         this.setState({ message: 'Location not recognized; please try again.'});
     }
