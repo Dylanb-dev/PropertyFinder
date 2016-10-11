@@ -60,7 +60,9 @@ export class SearchPage extends Component {
     this.setState({ isLoading: false , message: '' });
     if (response.application_response_code.substr(0, 1) === '1') {
       this.context.router.transitionTo({
-       pathname: '/navitest',
+       pathname: '/results',
+       query: {test: 'nerd'},
+       params: {listings: response.listings}
         })
       } else {
         this.setState({ message: 'Location not recognized; please try again.'});

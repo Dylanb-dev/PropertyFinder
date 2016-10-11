@@ -15,6 +15,7 @@ export class SearchResults extends Component {
 
   constructor(props) {
     super(props);
+    console.log(this.props.query)
     var listings = [{
         "bathroom_number": 1,
         "bedroom_number": 1,
@@ -725,6 +726,7 @@ export class SearchResults extends Component {
     );
   }
 }
+
 
 SearchResults.contextTypes = {
   router: React.PropTypes.object
