@@ -26,33 +26,13 @@ export class App extends Component {
  render() {
    return (
      <Router>
-       <View style={styles.container}>
+      <View>
            <Match exactly pattern="/" component={SearchPage}/>
            <Match exactly pattern="/navitest" component={NavigateNext}/>
            <Match exactly pattern="/view" component={PropertyView}/>
            <Match exactly pattern="/results" component={SearchResults}/>
-         </View>
+        </View>
      </Router>
    );
  }
 }
-const styles = StyleSheet.create({
- container: {
-   flex: 1,
-   justifyContent: 'center',
-   alignItems: 'center',
-   backgroundColor: '#F5FCFF',
- },
- route: {
-   color: '#701010',
-   fontSize: 40
- },
- routeLink: {
-   color: '#0000FF'
- },
- routeContainer: {
-   flex: 1,
-   justifyContent: 'center'
- }
-
-});

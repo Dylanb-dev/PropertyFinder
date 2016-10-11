@@ -80,7 +80,12 @@ export class SearchPage extends Component {
     ( <ActivityIndicator size='large'/> ) :
     ( <View/>);
     return (
+      <View>
+      <Text style={styles.title}>
+        React Native on Web Demo
+      </Text>
       <View style={styles.container}>
+
         <Text style={styles.description}>
           Search for houses to buy!
         </Text>
@@ -109,6 +114,7 @@ export class SearchPage extends Component {
         <Image source={require('../assets/house.png')} style={styles.image}/>
         <Text style={styles.description}>{this.state.message}</Text>
         {spinner}
+      </View>
       </View>
     );
   }
@@ -164,7 +170,16 @@ const styles = StyleSheet.create({
     width: 217,
     height: 138,
     alignSelf: 'center'
-  }
+  },
+  title: {
+    marginBottom: 20,
+    paddingTop: 20,
+    fontSize: 22,
+    backgroundColor: '#48BBEC',
+    textAlign: 'center',
+    alignSelf: 'stretch',
+    color: 'white'
+  },
 });
 
 SearchPage.contextTypes = {
