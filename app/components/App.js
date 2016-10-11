@@ -16,7 +16,9 @@ import {
 
 import { Match, Miss, MemoryRouter as Router } from 'react-router';
 
+import { NavigateNext } from './NavigateNext.js'
 import { SearchPage } from './SearchPage.js'
+import { SearchResults } from './SearchResults.js'
 
 
 export class App extends Component {
@@ -24,9 +26,9 @@ export class App extends Component {
    return (
      <Router>
        <View style={styles.container}>
-         <View style={styles.routeContainer}>
            <Match exactly pattern="/" component={SearchPage}/>
-         </View>
+           <Match exactly pattern="/navitest" component={NavigateNext}/>
+           <Match exactly pattern="/results" component={SearchResults}/>
          </View>
      </Router>
    );

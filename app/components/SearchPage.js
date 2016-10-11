@@ -9,6 +9,7 @@ import {
   Image,
 } from 'react-native';
 
+
 function urlForQueryAndPage(key, value, pageNumber) {
   var data = {
       country: 'uk',
@@ -28,6 +29,11 @@ function urlForQueryAndPage(key, value, pageNumber) {
 }
 
 export class SearchPage extends Component {
+
+  contextTypes: {
+    router: React.PropTypes.object
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -36,16 +42,11 @@ export class SearchPage extends Component {
       message: ''
     };
   }
-  // onSearchTextChanged(event) {
-  //   console.log('onSearchTextChanged');
-  //   this.setState({ searchString: event.value });
-  //   console.log(this.state.searchString);
-  // }
 
   _executeQuery(query) {
     console.log(query);
     this.setState({ isLoading: true });
-    fetch(query, {body: null})
+    fetch(query)
     .then(response => response.json())
     .then(json => this._handleResponse(json.response))
     .catch(error =>
@@ -58,9 +59,11 @@ export class SearchPage extends Component {
   _handleResponse(response) {
     this.setState({ isLoading: false , message: '' });
     if (response.application_response_code.substr(0, 1) === '1') {
-      console.log('Properties found: ' + response.listings.length);
-    } else {
-      this.setState({ message: 'Location not recognized; please try again.'});
+      this.context.router.transitionTo({
+       pathname: '/navitest',
+        })
+      } else {
+        this.setState({ message: 'Location not recognized; please try again.'});
     }
   }
 
@@ -109,7 +112,6 @@ export class SearchPage extends Component {
     );
   }
 }
-
 
 const styles = StyleSheet.create({
   description: {
@@ -163,3 +165,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   }
 });
+
+SearchPage.contextTypes = {
+  router: React.PropTypes.object
+};
