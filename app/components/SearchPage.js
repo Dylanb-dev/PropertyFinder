@@ -81,7 +81,7 @@ export class SearchPage extends Component {
     ( <View/>);
     return (
       <View>
-      <Text style={styles.title}>
+      <Text style={styles.NavBar}>
         React Native on Web Demo
       </Text>
       <View style={styles.container}>
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
     height: 138,
     alignSelf: 'center'
   },
-  title: {
+  NavBar: {
     marginBottom: 20,
     paddingTop: 20,
     fontSize: 22,

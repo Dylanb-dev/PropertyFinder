@@ -10,6 +10,8 @@ import {
   Image,
 } from 'react-native';
 
+import { NavLink } from './NavLink.js'
+
 export class PropertyView extends Component {
 
   render() {
@@ -23,6 +25,18 @@ export class PropertyView extends Component {
     var price = property.price_formatted.split(' ')[0];
 
     return (
+      <View>
+      <Text style={styles.NavBar}>
+      <NavLink to={{
+        pathname: "/results",
+        query: { listings: this.props.location.query.listings }
+      }}>
+            <Text style={styles.routeLink}>
+              Back
+            </Text>
+          </NavLink>
+          React Native on Web Demo
+      </Text>
       <View style={styles.container}>
         <Image style={styles.image}
             source={{uri: property.img_url}} />
@@ -34,6 +48,8 @@ export class PropertyView extends Component {
         <Text style={styles.description}>{stats}</Text>
         <Text style={styles.description}>{property.summary}</Text>
       </View>
+    </View>
+
     );
   }
 }
@@ -69,7 +85,21 @@ const styles = StyleSheet.create({
    fontSize: 18,
    margin: 5,
    color: '#656565'
- }
+ },
+ NavBar: {
+   marginBottom: 20,
+   paddingTop: 20,
+   fontSize: 22,
+   backgroundColor: '#48BBEC',
+   textAlign: 'center',
+   alignSelf: 'stretch',
+   color: 'white'
+ },
+ routeLink: {
+   color: 'white',
+   marginBottom: -25,
+   marginLeft: 5,
+ },
 });
 
 

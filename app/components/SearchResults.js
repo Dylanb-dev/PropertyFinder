@@ -10,6 +10,7 @@ import {
   Image,
 } from 'react-native';
 
+import { NavLink } from './NavLink.js'
 
 export class SearchResults extends Component {
 
@@ -21,7 +22,6 @@ export class SearchResults extends Component {
     this.state = {
       dataSource: dataSource.cloneWithRows(listings)
     };
-    console.log(this.props.params.query);
   }
 
   renderRow(rowData, sectionID, rowID) {
@@ -49,15 +49,25 @@ export class SearchResults extends Component {
     var property = this.props.location.query.listings.filter(prop => prop.guid === propertyGuid)[0];
     this.context.router.transitionTo({
       pathname: "/view",
-      query: { property: property }
+      query: { property: property, listings: this.props.location.query.listings }
     });
   }
 
   render() {
     return (
+      <View>
+      <Text style={styles.NavBar}>
+      <NavLink to="/">
+        <Text style={styles.routeLink}>
+          Back
+        </Text>
+        </NavLink>
+        React Native on Web Demo
+      </Text>
       <ListView
         dataSource={this.state.dataSource}
         renderRow={this.renderRow.bind(this)}/>
+      </View>
     );
   }
 }
@@ -70,6 +80,20 @@ var styles = StyleSheet.create({
   },
   textContainer: {
     flex: 1
+  },
+  NavBar: {
+    marginBottom: 20,
+    paddingTop: 20,
+    fontSize: 22,
+    backgroundColor: '#48BBEC',
+    textAlign: 'center',
+    alignSelf: 'stretch',
+    color: 'white'
+  },
+  routeLink: {
+    color: 'white',
+    marginBottom: -25,
+    marginLeft: 5,
   },
   separator: {
     height: 1,
