@@ -10,8 +10,6 @@ import {
   Image,
 } from 'react-native';
 
-import { NavLink } from './NavLink.js'
-
 export class SearchResults extends Component {
 
   constructor(props) {
