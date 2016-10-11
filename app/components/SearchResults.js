@@ -52,16 +52,25 @@ export class SearchResults extends Component {
       query: { property: property, listings: this.props.location.query.listings }
     });
   }
+  onBackPressed() {
+    this.context.router.transitionTo({
+     pathname: '/',
+    })
+  }
 
   render() {
     return (
       <View>
       <Text style={styles.NavBar}>
-      <NavLink to="/">
-        <Text style={styles.routeLink}>
+      <TouchableHighlight
+          onPress={this.onBackPressed.bind(this)}
+          >
+          <Text
+          style={styles.routeLink}
+          >
           Back
-        </Text>
-        </NavLink>
+          </Text>
+          </TouchableHighlight>
         React Native on Web Demo
       </Text>
       <ListView
@@ -88,7 +97,7 @@ var styles = StyleSheet.create({
     backgroundColor: '#48BBEC',
     textAlign: 'center',
     alignSelf: 'stretch',
-    color: 'white'
+    color: 'white',
   },
   routeLink: {
     color: 'white',

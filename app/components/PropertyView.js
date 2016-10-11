@@ -14,6 +14,13 @@ import { NavLink } from './NavLink.js'
 
 export class PropertyView extends Component {
 
+  onBackPressed() {
+    this.context.router.transitionTo({
+     pathname: '/results',
+     query: { listings: this.props.location.query.listings }
+    })
+  }
+
   render() {
     var property = this.props.location.query.property;
     var stats = property.bedroom_number + ' bed ' + property.property_type;
@@ -27,15 +34,16 @@ export class PropertyView extends Component {
     return (
       <View>
       <Text style={styles.NavBar}>
-      <NavLink to={{
-        pathname: "/results",
-        query: { listings: this.props.location.query.listings }
-      }}>
-            <Text style={styles.routeLink}>
-              Back
-            </Text>
-          </NavLink>
-          React Native on Web Demo
+      <TouchableHighlight
+          onPress={this.onBackPressed.bind(this)}
+          >
+          <Text
+          style={styles.routeLink}
+          >
+          Back
+          </Text>
+          </TouchableHighlight>
+        React Native on Web Demo
       </Text>
       <View style={styles.container}>
         <Image style={styles.image}
