@@ -19,6 +19,7 @@ import { Match, Miss, MemoryRouter as Router } from 'react-router';
 import { NavigateNext } from './NavigateNext.js'
 import { SearchPage } from './SearchPage.js'
 import { SearchResults } from './SearchResults.js'
+import { PropertyView } from './PropertyView.js'
 
 
 export class App extends Component {
@@ -28,6 +29,7 @@ export class App extends Component {
        <View style={styles.container}>
            <Match exactly pattern="/" component={SearchPage}/>
            <Match exactly pattern="/navitest" component={NavigateNext}/>
+           <Match exactly pattern="/view" component={PropertyView}/>
            <Match exactly pattern="/results" component={SearchResults}/>
          </View>
      </Router>
