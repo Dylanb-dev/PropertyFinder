@@ -59,9 +59,9 @@ export class SearchResults extends Component {
   render() {
     return (
       <View>
-      <Text style={styles.NavBar}>
       <TouchableHighlight
           onPress={this.onBackPressed.bind(this)}
+          style={styles.NavBar}
           >
           <Text
           style={styles.routeLink}
@@ -69,8 +69,6 @@ export class SearchResults extends Component {
           Back
           </Text>
           </TouchableHighlight>
-        React Native on Web Demo
-      </Text>
       <ListView
         dataSource={this.state.dataSource}
         renderRow={this.renderRow.bind(this)}/>
@@ -89,18 +87,15 @@ var styles = StyleSheet.create({
     flex: 1
   },
   NavBar: {
-    marginBottom: 20,
-    paddingTop: 20,
-    fontSize: 22,
+    padding: 22,
     backgroundColor: '#48BBEC',
-    textAlign: 'center',
     alignSelf: 'stretch',
-    color: 'white',
   },
   routeLink: {
     color: 'white',
-    marginBottom: -25,
+    marginBottom: -20,
     marginLeft: 5,
+    fontSize: 18,
   },
   separator: {
     height: 1,

@@ -31,9 +31,9 @@ export class PropertyView extends Component {
 
     return (
       <View>
-      <Text style={styles.NavBar}>
       <TouchableHighlight
           onPress={this.onBackPressed.bind(this)}
+          style={styles.NavBar}
           >
           <Text
           style={styles.routeLink}
@@ -41,9 +41,6 @@ export class PropertyView extends Component {
           Back
           </Text>
           </TouchableHighlight>
-        React Native on Web Demo
-      </Text>
-      <View style={styles.container}>
         <Image style={styles.image}
             source={{uri: property.img_url}} />
         <View style={styles.heading}>
@@ -54,8 +51,6 @@ export class PropertyView extends Component {
         <Text style={styles.description}>{stats}</Text>
         <Text style={styles.description}>{property.summary}</Text>
       </View>
-    </View>
-
     );
   }
 }
@@ -93,18 +88,15 @@ const styles = StyleSheet.create({
    color: '#656565'
  },
  NavBar: {
-   marginBottom: 20,
-   paddingTop: 20,
-   fontSize: 22,
+   padding: 22,
    backgroundColor: '#48BBEC',
-   textAlign: 'center',
    alignSelf: 'stretch',
-   color: 'white'
  },
  routeLink: {
    color: 'white',
-   marginBottom: -25,
+   marginBottom: -20,
    marginLeft: 5,
+   fontSize: 18,
  },
 });
 
